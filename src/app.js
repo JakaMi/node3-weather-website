@@ -7,6 +7,8 @@ const forecast = require('./utils/forecast')
 //starts server (not really)
 const app = express()
 
+const port = process.env.PORT || 3000 //port, ce obstaja, drugace 3000 (lokalno)
+
 // define paths for Express config
 const publicDIR = path.join(__dirname, '..', 'public')
 const templatesPath = path.join(__dirname, '..', 'templates', 'views')
@@ -99,6 +101,6 @@ app.get('*', (req, res) => { // * -> ujemanje usega
 })
 
 // starts server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port + '.')
 }) //dev port 3000
